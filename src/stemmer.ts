@@ -6,7 +6,7 @@ export default class Stemmer {
   public consonant: string;
 
   constructor(dictionary: string[] = defaultDictionary) {
-    this.internalDictionary = {};
+    this.internalDictionary = Object.create(null);
 
     dictionary.forEach(word => {
       this.internalDictionary[word] = "";
@@ -17,7 +17,7 @@ export default class Stemmer {
   }
 
   addToDict(words: string[]): void {
-    words.forEach(function (word) {
+    words.forEach(word => {
       this.internalDictionary[word] = "";
     });
   }
