@@ -51,13 +51,8 @@ export default class Stemmer {
   }
 
   isOneOf(c: string, chars: string): boolean {
-    const charz = chars.split("");
-    for (let i = 0; i < charz.length; i++) {
-      if (charz[i] == c) {
-        return true;
-      }
-    }
-    return false;
+    if (c.length !== 1) return false;
+    return chars.indexOf(c) !== -1;
   }
 
   isNotOneOf(c: string, chars: string): boolean {
