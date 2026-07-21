@@ -2,7 +2,7 @@
 
 [![Node version](https://img.shields.io/node/v/sastrawijs.svg?style=flat)](http://nodejs.org/download/) [![Build Status](https://travis-ci.org/mlengse/sastrawijs.svg?branch=master)](https://travis-ci.org/mlengse/sastrawijs)
 
-SastrawiJs is a javascript package for doing stemming in Indonesian language. It is based from [Sastrawi](https://github.com/mlengse/sastrawi) for PHP by [Andy Librian](https://github.com/andylibrian).
+SastrawiJs is a javascript package for doing stemming in Indonesian language. It is based from [Sastrawi](https://github.com/sastrawi/sastrawi) for PHP by [Andy Librian](https://github.com/andylibrian).
 
 ## Stemming
 
@@ -96,7 +96,7 @@ var stemmer = new Stemmer(custom);
 2. Asian J. 2007. **_Effective Techniques for Indonesian Text Retrieval_**. PhD thesis School of Computer Science and Information Technology RMIT University Australia. ([PDF](http://researchbank.rmit.edu.au/eserv/rmit:6312/Asian.pdf) dan [Amazon](https://www.amazon.com/Effective-Techniques-Indonesian-Text-Retrieval/dp/3639021649))
 3. Arifin, A.Z., I.P.A.K. Mahendra dan H.T. Ciptaningtyas. 2009. **_Enhanced Confix Stripping Stemmer and Ants Algorithm for Classifying News Document in Indonesian Language_**, Proceeding of International Conference on Information & Communication Technology and Systems (ICTS). ([PDF](http://personal.its.ac.id/files/pub/2623-agusza-baru%2021%20d%20VIP%20enhanced-confix-stripping-stem.pdf))
 4. A. D. Tahitoe, D. Purwitasari. 2010. **_Implementasi Modifikasi Enhanced Confix Stripping Stemmer Untuk Bahasa Indonesia dengan Metode Corpus Based Stemming_**, Institut Teknologi Sepuluh Nopember (ITS) – Surabaya, 60111, Indonesia. ([PDF](http://digilib.its.ac.id/public/ITS-Undergraduate-14255-paperpdf.pdf))
-5. Tambahan aturan _stemming_ dari [kontributor Sastrawi](https://github.com/mlengse/sastrawi/graphs/contributors).
+5. Tambahan aturan _stemming_ dari [kontributor Sastrawi](https://github.com/sastrawi/sastrawi/graphs/contributors).
 
 #### Root word dictionary
 
@@ -104,11 +104,11 @@ Sastrawi rely heavily on a root word dictionary. It is based on [kateglo.com](ht
 
 ## Lisensi
 
-As [Sastrawi](https://github.com/mlengse/sastrawi) for PHP, SastrawiJs is also shared with [MIT](http://choosealicense.com/licenses/mit/) license. As for the license of kateglo: [CC-BY-NC-SA 3.0](https://github.com/ivanlanin/kateglo#lisensi-isi).
+As [Sastrawi](https://github.com/sastrawi/sastrawi) for PHP, SastrawiJs is also shared with [MIT](http://choosealicense.com/licenses/mit/) license. As for the license of kateglo: [CC-BY-NC-SA 3.0](https://github.com/ivanlanin/kateglo#lisensi-isi).
 
 ## Sastrawi in other programming language
 
-- [Sastrawi](https://github.com/mlengse/sastrawi) - PHP
+- [Sastrawi](https://github.com/sastrawi/sastrawi) - PHP
 - [JSastrawi](https://github.com/jsastrawi/jsastrawi) - Java
 - [cSastrawi](https://github.com/mohangk/c_sastrawi) - C
 - [PySastrawi](https://github.com/mlengse/PySastrawi) - Python
