@@ -26,19 +26,19 @@
   "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/damzaky/sastrawijs.git"
+    "url": "https://github.com/mlengse/sastrawijs.git"
   },
   "keywords": [
     "stemmer",
     "nlp",
     "indonesia"
   ],
-  "author": "Damar Zaky",
+  "author": "mLengse (medotsys@gmail.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/damzaky/sastrawijs/issues"
+    "url": "https://github.com/mlengse/sastrawijs/issues"
   },
-  "homepage": "https://github.com/damzaky/sastrawijs",
+  "homepage": "https://github.com/mlengse/sastrawijs",
   "devDependencies": {
     "@babel/core": "^7.24.0",
     "@babel/preset-env": "^7.24.0",
