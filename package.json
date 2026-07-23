@@ -21,7 +21,8 @@
     "prepublishOnly": "run-s build test test:pkg",
     "build": "rollup -c",
     "test": "jest",
-    "test:pkg": "check-export-map"
+    "test:pkg": "check-export-map",
+    "evaluate": "npm run build && node scripts/evaluate-kbbi.js"
   },
   "types": "./dist/index.d.ts",
   "repository": {

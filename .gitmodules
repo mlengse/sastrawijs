@@ -1,3 +1,4 @@
 [submodule "data/kbbi-harvester-cdn"]
 	path = data/kbbi-harvester-cdn
 	url = https://github.com/mlengse/kbbi-harvester-cdn.git
+	branch = main

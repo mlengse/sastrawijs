@@ -1,0 +1,71 @@
+const fs = require("fs");
+const path = require("path");
+const { Stemmer } = require("../dist/sastrawijs.cjs.js");
+
+const stemmer = new Stemmer();
+const kbbiDir = path.join(__dirname, "../data/kbbi-harvester-cdn/word-details");
+
+let total = 0;
+let success = 0;
+const failures = [];
+
+function cleanRoot(rootWord) {
+  if (!rootWord) return "";
+  // Remove superscript numbers (e.g. ada¹) and spaces
+  return rootWord
+    .replace(/[\u00B2\u00B3\u00B9\u2070-\u2079\s]/g, "")
+    .toLowerCase();
+}
+
+function processDirectory(dir) {
+  if (!fs.existsSync(dir)) {
+    console.error(`Directory not found: ${dir}`);
+    return;
+  }
+  const files = fs.readdirSync(dir);
+  for (const file of files) {
+    const fullPath = path.join(dir, file);
+    const stat = fs.statSync(fullPath);
+    if (stat.isDirectory()) {
+      processDirectory(fullPath);
+    } else if (file.endsWith(".json")) {
+      try {
+        const data = JSON.parse(fs.readFileSync(fullPath, "utf8"));
+        if (data.entries && data.entries.length > 0) {
+          const rootWord = cleanRoot(data.entries[0].rootWord);
+          const word = (data.word || "").toLowerCase();
+
+          // Skip if word is already the root word (we want to test stemming of derivations)
+          if (word && rootWord && word !== rootWord) {
+            total++;
+            const stemmed = stemmer.stem(word).toLowerCase();
+            if (stemmed === rootWord) {
+              success++;
+            } else {
+              failures.push({ word, expected: rootWord, actual: stemmed });
+            }
+          }
+        }
+      } catch (err) {
+        // ignore JSON parse errors
+      }
+    }
+  }
+}
+
+console.log("Mengevaluasi stemmer Sastrawi menggunakan dataset KBBI...");
+processDirectory(kbbiDir);
+
+console.log(`Evaluasi selesai.`);
+console.log(`Total kata turunan diuji: ${total}`);
+console.log(`Berhasil: ${success}`);
+console.log(`Gagal: ${failures.length}`);
+if (total > 0) {
+  console.log(`Akurasi: ${((success / total) * 100).toFixed(2)}%`);
+}
+
+fs.writeFileSync(
+  path.join(__dirname, "../failed-stems.json"),
+  JSON.stringify(failures, null, 2)
+);
+console.log(`Daftar kata yang gagal disimpan di failed-stems.json`);
