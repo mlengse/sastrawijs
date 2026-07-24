@@ -1,12 +1,13 @@
 export default class Tokenizer {
-  parseHtmlEnteties(str: string): string {
-    return str.replace(/&#([0-9]{1,3});/gi, (match, numStr) =>
+  parseHtmlEntities(str: string): string {
+    return str.replace(/&#([0-9]{1,3});/gi, (_match, numStr) =>
       String.fromCharCode(parseInt(numStr, 10))
     );
   }
 
   tokenize(sentence: string): string[] {
-    let sent = this.parseHtmlEnteties(sentence);
+    if (typeof sentence !== "string") return [];
+    let sent = this.parseHtmlEntities(sentence);
     sent = sent.toLowerCase();
     sent = sent.replace(/(www\.|https?|s?ftp)\S+/g, "");
     sent = sent.replace(/\S+@\S+/g, "");

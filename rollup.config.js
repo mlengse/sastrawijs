@@ -1,8 +1,9 @@
 import babel from "@rollup/plugin-babel";
-import { terser } from "rollup-plugin-terser";
+import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
+import { readFileSync } from "fs";
 
-import pkg from "./package.json";
+const pkg = JSON.parse(readFileSync("./package.json", "utf8"));
 
 export default {
   input: "src/index.ts",
@@ -22,7 +23,7 @@ export default {
     },
   ],
   plugins: [
-    babel({ babelHelpers: "bundled", plugins: ['transform-class-properties'], }),
+    babel({ babelHelpers: "bundled" }),
     terser(),
     typescript({ tsconfig: "./tsconfig.json" }),
   ],
